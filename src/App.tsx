@@ -1,34 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Scene } from "@/components/ui/hero-section"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="relative min-h-svh w-screen overflow-hidden bg-gradient-to-br from-[#000] to-[#1A2428] text-white">
+      <div className="absolute inset-0 opacity-80">
+        <Scene />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center justify-center gap-10 px-6 py-20 text-center">
+        <Badge
+          variant="secondary"
+          className="backdrop-blur-sm bg-white/10 border-white/20 text-white hover:bg-white/20"
+        >
+          Next Generation Tools
+        </Badge>
+
+        <div className="space-y-5">
+          <h1 className="text-3xl font-semibold tracking-tight md:text-6xl">
+            Extreme IT Solutions
+          </h1>
+          <p className="mx-auto max-w-2xl text-base text-white/70 md:text-lg">
+            Каркас: Vite + React + TypeScript + Tailwind + shadcn-структура.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <Button
+            onClick={() => window.open("https://github.com", "_blank")}
+          >
+            GitHub
+          </Button>
+          <Button
+            variant="outline"
+            className="border-white/25 bg-white/5 text-white hover:bg-white/10 hover:text-white"
+            onClick={() => document.documentElement.classList.toggle("dark")}
+          >
+            Toggle dark class
+          </Button>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
